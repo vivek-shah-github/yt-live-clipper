@@ -14,6 +14,7 @@ Clip any moment from a YouTube live stream or video and save it as MP4, for Wind
 |---|---|
 | `desktop/` | Windows and Mac app (Python). Start with `run.bat` or `run.command`. |
 | `android/` | Android app (Kotlin + WebView). Build with `./gradlew assembleRelease`. |
+| `web/` | Web version: turns your own computer into a password-protected clipper website (Cloudflare Tunnel link), usable from any browser with nothing to install. Start with `web/start-web.command` (Mac) or `web/start-web.bat` (Windows). Needs the `desktop/` folder next to it. |
 | `docs/` | The website (GitHub Pages) and the downloadable files. |
 
 The interface is one HTML file shared by all three apps: `desktop/ui/index.html` and `android/app/src/main/assets/web/index.html` are the same file.

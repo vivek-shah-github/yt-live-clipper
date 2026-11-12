@@ -1,0 +1,4 @@
+web/data/
+web/bin/
+web/current-link.txt
+__pycache__/

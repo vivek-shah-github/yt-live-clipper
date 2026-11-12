@@ -196,6 +196,7 @@ button{cursor:pointer}
 .file .fn{min-width:0;flex:1}
 .file .fn div{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600;font-size:14px}
 .file .fn small{color:var(--muted)}
+.file .dlbtn{height:30px;padding:0 12px;border-radius:8px;background:var(--tally);color:#1b1404;font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;text-decoration:none}
 .file button{height:30px;padding:0 10px;border-radius:8px;border:1px solid var(--line);background:var(--deck2);font-size:12.5px;font-weight:600}
 
 /* ---------- activity ---------- */
@@ -451,7 +452,8 @@ function call(name, args) {
     catch (e) { return Promise.resolve({ ok: false, error: String(e) }); }
   }
   return fetch("/api/" + name, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(args || {}) })
-    .then(r => r.json()).catch(e => ({ ok: false, error: "App is not running. Start it again with run.bat / run.command." }));
+    .then(r => { if (r.status === 401) { location.href = "/login"; return { ok: false, error: "Please sign in again." }; } return r.json(); })
+    .catch(e => ({ ok: false, error: location.hostname === "127.0.0.1" || location.hostname === "localhost" ? "App is not running. Start it again with run.bat / run.command." : "Can't reach the clipper server. Check your internet, or ask the owner to start it again." }));
 }
 
 // ======================================================== helpers
@@ -933,7 +935,7 @@ function renderFiles() {
   $("fileList").innerHTML = S.outputs.slice().reverse().map(f => `<li class="file">
     <span class="fi"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>
     <div class="fn"><div title="${esc(f.name)}">${esc(f.name)}</div><small>${f.size ? fmtSize(f.size) : ""}</small></div>
-    <button data-open="${esc(f.path)}">Open</button>${IS_ANDROID ? `<button data-share="${esc(f.path)}">Share</button>` : ""}</li>`).join("");
+    ${f.url ? `<a class="dlbtn" href="${esc(f.url)}" download>Download</a>` : `<button data-open="${esc(f.path)}">Open</button>`}${IS_ANDROID ? `<button data-share="${esc(f.path)}">Share</button>` : ""}</li>`).join("");
 }
 $("fileList").addEventListener("click", async e => {
   const o = e.target.closest("[data-open]"), s = e.target.closest("[data-share]");
