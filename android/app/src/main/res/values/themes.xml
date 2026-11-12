@@ -1,0 +1,7 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/ink</item>
+        <item name="colorPrimary">@color/deck</item>
+        <item name="colorAccent">@color/tally</item>
+    </style>
+</resources>
