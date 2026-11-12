@@ -27,7 +27,7 @@ import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.request import urlopen
 
-APP_VERSION = "2.0"
+APP_VERSION = "2.1"
 
 # --------------------------------------------------------------------------- deps
 try:

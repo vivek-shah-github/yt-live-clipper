@@ -11,8 +11,8 @@ android {
         applicationId = "com.madebytwins.ytliveclipper"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "2.0"
+        versionCode = 2
+        versionName = "2.1"
     }
 
     // The signing key is NOT in this repository. Put your keystore at android/keystore/ytliveclipper.jks

@@ -86,6 +86,8 @@ h2{font:700 clamp(34px,4.6vw,52px)/1 var(--tc);margin:0 0 14px;max-width:18ch}
 .uses p{margin:0;color:var(--muted);font-size:16px}
 .glyph{height:46px;display:flex;align-items:center}
 
+.video{margin-top:32px;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#000;aspect-ratio:16/9}
+.video video{display:block;width:100%;height:100%}
 .steps{list-style:none;padding:0;margin:44px 0 0;counter-reset:s;border-top:1px solid var(--line)}
 .steps li{counter-increment:s;display:grid;grid-template-columns:90px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
 .steps li::before{content:counter(s);font:700 44px/1 var(--tc);color:var(--tally)}
@@ -144,7 +146,7 @@ footer .r{margin-left:auto}
     <p class="lede">Paste a YouTube live stream link, mark the parts you want, and get clean MP4 files. Record streams while they're live, or cut a three-hour broadcast after it ends.</p>
     <div class="cta">
       <a class="btn primary" href="#download"><svg viewBox="0 0 24 24"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>Download free</a>
-      <a class="btn" href="#how">See how it works</a>
+      <a class="btn" href="#how"><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg>Watch the tutorial</a>
     </div>
     <p class="small">Windows, Mac and Android. No account, no watermark.</p>
 
@@ -195,6 +197,8 @@ footer .r{margin-left:auto}
 
   <section id="how" aria-labelledby="howTitle">
     <h2 id="howTitle">How it works</h2>
+    <p class="sub">Watch the 90-second tutorial, or read the three steps below.</p>
+    <div class="video"><video controls playsinline preload="metadata" poster="tutorial-poster.jpg" src="tutorial.mp4" aria-label="YT Live Clipper tutorial video"></video></div>
     <ol class="steps">
       <li><div><h3>Paste the link</h3><p>Any YouTube live stream, past stream or video. On Android you can also tap Share in the YouTube app and pick YT Live Clipper.</p></div></li>
       <li><div><h3>Mark the moments</h3><p>Watch the preview and press <kbd>I</kbd> where a clip starts and <kbd>O</kbd> where it ends, drag across the timeline, or type the times. Zoom in to land on the exact second, then press Preview to check it.</p></div></li>

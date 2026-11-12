@@ -32,7 +32,7 @@ import kotlin.math.roundToInt
  * [call] with the same action names and gets the same JSON back.
  */
 object Engine {
-    private const val VERSION = "2.0"
+    private const val VERSION = "2.1"
     private val QUALITIES = listOf("Best", "2160p", "1440p", "1080p", "720p", "480p", "360p")
     private const val OUT_LABEL = "Movies/YT Clips"
     private const val VERTICAL_VF = "crop=trunc(ih*9/16/2)*2:ih,scale=1080:1920:flags=lanczos,setsar=1"
